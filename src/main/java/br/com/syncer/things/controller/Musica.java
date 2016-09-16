@@ -1,6 +1,5 @@
 package br.com.syncer.things.controller;
 
-<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,15 +12,8 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 
 
-@SessionScoped
-@ManagedBean(name="musica")
-=======
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
 @ManagedBean(name="musica")
 @SessionScoped
->>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
 public class Musica {
 String tituloMusica;
 public String getTituloMusica() {
@@ -48,7 +40,7 @@ public String getBanda() {
 public void setBanda(String banda) {
 	this.banda = banda;
 }
-<<<<<<< HEAD
+
 private Date date11;
 
 public void onDateSelect(SelectEvent event) {
@@ -63,22 +55,20 @@ public void click() {
     requestContext.update("form:display");
     requestContext.execute("PF('dlg').show()");
 }
-=======
->>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
+
 String letraMusica;
 String compositorMusica;
 String banda;
 public Musica(){
 	
 }
-<<<<<<< HEAD
+
 public Date getDate11() {
 	return date11;
 }
 public void setDate11(Date date11) {
 	this.date11 = date11;
 }
-=======
->>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
+
 
 }
