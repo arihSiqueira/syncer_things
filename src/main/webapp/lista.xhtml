@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+  <h:body>
+    <h:form id="helloForm">
+      <h:panelGrid id="Leitura" columns="3">
+        <f:facet name="header">
+          <h:outputText value="Entrada"/>
+        </f:facet>
+        <h:outputText id="nomeLabel" value="Nome :"/> 
+        <h:inputText id="nome" value="#{hello.nome}" 
+          size="20" required="true"
+          label="Nome" >
+        </h:inputText>
+        <h:message id="nomeMesage" for="nome" style="color:red" />  
+      </h:panelGrid>
+      <h:commandButton id="alterar" value="Alterar">
+        <f:ajax execute="@form" render="message nomeMesage" />
+      </h:commandButton>
+    </h:form>
+    <h:outputText id="message" value="#{helloController.message}"/>
+  </h:body>
+</html>

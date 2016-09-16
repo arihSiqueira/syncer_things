@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<h:head>
+		<title>Calendar</title>
+		
+	</h:head>
+	<h:form id="form">
+		<p:growl id="msgs" showDetail="true" />
+
+		<h:panelGrid columns="2" cellpadding="5">
+		<p:outputLabel for="time" value="Título da Música:" />
+		<p:inputText value="#{Musica.tituloMusica}"/>
+				<p:outputLabel for="time" value="Compositor da Música:" />
+		<p:inputText value="#{Musica.compositorMusica}"/>
+				<p:outputLabel for="time" value="Banda:" />
+		<p:inputText value="#{Musica.banda}"/>
+		<p:outputLabel for="time" value="Letra da Música:" />
+		<p:inputTextarea cols="25" value="#{Musica.letraMusica}"/>
+			<p:outputLabel for="time" value="Duração da Música:" />
+			<p:calendar id="time" value="#{Musica.date11}" pattern="HH:mm:ss"
+				timeOnly="true" />
+		</h:panelGrid>
+		<p:commandButton value="Submit" update="msgs"
+			actionListener="#{Musica.click}" icon="ui-icon-check" />
+		<p:dialog modal="true" resizable="false" header="Values"
+			widgetVar="dlg" showEffect="fold">
+			<p:panelGrid id="display" columns="2" columnClasses="label,value">
+				<h:outputText value="Time:" />
+				<h:outputText value="#{Musica.date11}">
+					<f:convertDateTime pattern="HH:mm" />
+				</h:outputText>
+			</p:panelGrid>
+		</p:dialog>
+	</h:form>
+
+</h:body>
+</html>
