@@ -7,10 +7,13 @@
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list> <!-- JSF mapping -->
+<<<<<<< HEAD
 	<context-param>
 	<param-name>primefaces.THEME</param-name>
 	<param-value>glass-x</param-value>
 </context-param>
+=======
+>>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

@@ -1,4 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<<<<<<< HEAD
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.syncer.things</groupId>
@@ -17,6 +18,19 @@
 			<url>http://repository.primefaces.org</url>
 		</repository>
 	</repositories>
+=======
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.syncer.things</groupId>
+  <artifactId>syncer_things</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>syncer_things Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+		<jsf.version>2.2.7</jsf.version>
+	</properties>
+>>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
 	<dependencies>
 		<!-- JSF -->
 		<dependency>
@@ -24,12 +38,16 @@
 			<artifactId>myfaces-api</artifactId>
 			<version>${jsf.version}</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-impl</artifactId>
 			<version>${jsf.version}</version>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
@@ -42,6 +60,15 @@
 		</dependency>
 	</dependencies>
 	<build>
+=======
+		    <dependency>  
+        <groupId>org.primefaces</groupId>  
+        <artifactId>primefaces</artifactId>  
+        <version>6.0</version>  
+    </dependency>  
+	</dependencies>
+  <build>
+>>>>>>> df9c750394650d02eb288eadf1938566408d1b1b
 		<finalName>syncer_things</finalName>
 		<plugins>
 			<plugin>
