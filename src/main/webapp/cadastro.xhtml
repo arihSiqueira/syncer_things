@@ -5,30 +5,35 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:body>
-<h:head>
-		<title>Calendar</title>
-		
+	<h:head>
+		<title>Cadastro de Músicas</title>
 	</h:head>
+	<p:breadCrumb>
+		<p:menuitem url="index.xhtml" />
+		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
+		<p:menuitem value="Lista de Músicas" url="lista.xhtml" />
+		
+	</p:breadCrumb>
+	<p:separator />
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
 
 		<h:panelGrid columns="2" cellpadding="5">
-		<p:outputLabel for="time" value="Título da Música:" />
-		<p:inputText value="#{Musica.tituloMusica}"/>
-				<p:outputLabel for="time" value="Compositor da Música:" />
-		<p:inputText value="#{Musica.compositorMusica}"/>
-				<p:outputLabel for="time" value="Banda:" />
-		<p:inputText value="#{Musica.banda}"/>
-		<p:outputLabel for="time" value="Letra da Música:" />
-		<p:inputTextarea cols="25" value="#{Musica.letraMusica}"/>
-			<p:outputLabel for="time" value="Duração da Música:" />
+			<p:outputLabel id="tituloMusica" value="Título da Música:" />
+			<p:inputText value="#{Musica.tituloMusica}" />
+			<p:outputLabel id="compositorMusica" value="Compositor da Música:" />
+			<p:inputText value="#{Musica.compositorMusica}" />
+			<p:outputLabel id="banda" value="Banda:" />
+			<p:inputText value="#{Musica.banda}" />
+			<p:outputLabel id="letraMusica" value="Letra da Música:" />
+			<p:inputTextarea cols="25" value="#{Musica.letraMusica}" />
+			<p:outputLabel id="duracaoMusica" value="Duração da Música:" />
 			<p:calendar id="time" value="#{Musica.date11}" pattern="HH:mm:ss"
 				timeOnly="true" />
 		</h:panelGrid>
 		<p:commandButton value="Submit" update="msgs"
-			actionListener="#{Musica.click}" icon="ui-icon-check" />
+			action="#{musicaController.addMusica()}" icon="ui-icon-check"  />
 		<p:dialog modal="true" resizable="false" header="Values"
 			widgetVar="dlg" showEffect="fold">
 			<p:panelGrid id="display" columns="2" columnClasses="label,value">
@@ -39,8 +44,5 @@
 			</p:panelGrid>
 		</p:dialog>
 	</h:form>
-
-
-
 </h:body>
 </html>

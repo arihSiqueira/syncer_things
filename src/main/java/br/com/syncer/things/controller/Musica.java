@@ -12,9 +12,17 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 
 
-@ManagedBean(name="musica")
+@ManagedBean(name="Musica")
 @SessionScoped
 public class Musica {
+private int id=5;
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+
 String tituloMusica;
 public String getTituloMusica() {
 	return tituloMusica;
@@ -49,18 +57,18 @@ public void onDateSelect(SelectEvent event) {
     facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
 }
  
-public void click() {
-    RequestContext requestContext = RequestContext.getCurrentInstance();
-     
-    requestContext.update("form:display");
-    requestContext.execute("PF('dlg').show()");
-}
+
 
 String letraMusica;
 String compositorMusica;
 String banda;
 public Musica(){
-	
+	id += 1;
+}
+public Musica(int id, String tituloMusica){
+	this.tituloMusica = tituloMusica;
+	this.id = id;
+	id += 1;
 }
 
 public Date getDate11() {
@@ -69,6 +77,9 @@ public Date getDate11() {
 public void setDate11(Date date11) {
 	this.date11 = date11;
 }
-
+@Override
+public String toString() {
+    return tituloMusica;
+}
 
 }

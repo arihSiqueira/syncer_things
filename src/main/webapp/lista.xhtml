@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      >
-
-  <h:body>
-    <h:form id="helloForm">
-      <h:panelGrid id="Leitura" columns="3">
-        <f:facet name="header">
-          <h:outputText value="Entrada"/>
-        </f:facet>
-        <h:outputText id="nomeLabel" value="Nome :"/> 
-        <h:inputText id="nome" value="#{hello.nome}" 
-          size="20" required="true"
-          label="Nome" >
-        </h:inputText>
-        <h:message id="nomeMesage" for="nome" style="color:red" />  
-      </h:panelGrid>
-      <h:commandButton id="alterar" value="Alterar">
-        <f:ajax execute="@form" render="message nomeMesage" />
-      </h:commandButton>
-    </h:form>
-    <h:outputText id="message" value="#{helloController.message}"/>
-  </h:body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<h:head>
+		<title>Biblioteca de Músicas</title>
+	</h:head>
+	<p:breadCrumb>
+		<p:menuitem url="index.xhtml" />
+		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
+		<p:menuitem value="Lista de Músicas" url="itensLista.xhtml" />
+	</p:breadCrumb>
+	<p:separator />
+	  <h:form>
+		<p:outputLabel for="advanced" value="Selecione as músicas cadastradas para ter maiores informações:" />
+		<p:selectOneListbox id="advanced" value="#{selectOneView.musica}" converter="musicaConverter" var="m" filter="true" filterMatchMode="contains">
+            <f:selectItems value="#{selectOneView.musicas}" var="musica" itemLabel="#{musica.tituloMusica}" itemValue="#{musica}" />
+ 
+            <p:column>
+                <!--  <h:outputText styleClass="ui-theme ui-theme-#{t.name}" /> -->
+            </p:column>
+ 
+            <p:column>
+                <h:outputText value="#{m.tituloMusica}" />
+            </p:column>
+        </p:selectOneListbox>
+	</h:form> 
+</h:body>
 </html>
