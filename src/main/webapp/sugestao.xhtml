@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Sugestão</title>
+</h:head>
+<p:breadCrumb>
+	<p:menuitem url="index.xhtml" />
+	<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
+	<p:menuitem value="Lista de Músicas" url="lista.xhtml" />
+	<p:menuitem value="Sugestões" url="sugestao.xhtml" />
+</p:breadCrumb>
+<p:separator />
+<h:body>
+<!-- required="true" -->
+	<h:form id="form">
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel id="autor" value="Autor:"  />
+			<p:inputText value="#{sugestao.nomeAutor}" >
+		<!-- 	<f:validateLength minimum="2" /> -->
+			</p:inputText>
+			<p:outputLabel id="texto" value="Sugestão:" />
+			<p:editor widgetVar="editorWidget" id="sugestao" width="600"
+				value="#{sugestao.texto}" >
+			<!-- 	<f:validateLength minimum="2" /> -->
+				</p:editor>
+			  
+		</h:panelGrid>
+		<h:commandButton id="enviar" value="Enviar">
+		</h:commandButton>
+	</h:form>
+	    <h:outputText id="message" value="#{sugestaoController.message}"/>
+</h:body>
+</html>

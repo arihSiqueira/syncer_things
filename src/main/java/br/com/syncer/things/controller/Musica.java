@@ -65,13 +65,13 @@ String banda;
 public Musica(){
 	id += 1;
 	System.out.println(getTituloMusica());
-	System.out.println("het");
+	
 }
 public Musica(int id, String tituloMusica){
 	this.tituloMusica = tituloMusica;
 	this.id = id;
 	this.id += 1;
-	System.out.println("hi");
+	
 }
 
 public Date getDate11() {

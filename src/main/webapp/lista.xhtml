@@ -14,8 +14,10 @@
 		<p:menuitem url="index.xhtml" />
 		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
 		<p:menuitem value="Lista de Músicas" url="itensLista.xhtml" />
+		<p:menuitem value="Sugestões" url="sugestao.xhtml" />
 	</p:breadCrumb>
 	<p:separator />
+	
 	  <h:form>
 		<p:outputLabel for="advanced" value="Selecione as músicas cadastradas para ter maiores informações:" />
 		<p:selectOneListbox id="advanced" value="#{selectOneView.musica}" converter="musicaConverter" var="m" filter="true" filterMatchMode="contains">

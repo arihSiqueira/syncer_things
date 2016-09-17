@@ -13,11 +13,12 @@
 		<p:menuitem url="index.xhtml" />
 		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
 		<p:menuitem value="Lista de Músicas" url="lista.xhtml" />
-		
+		<p:menuitem value="Sugestões" url="sugestao.xhtml" />
 	</p:breadCrumb>
 	<p:separator />
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
+		<p:panel id="panel" header="Form" style="margin-bottom:10px;">
 		<h:panelGrid columns="2" cellpadding="5">
 			<p:outputLabel id="tituloMusica" value="Título da Música:" />
 			<p:inputText value="#{musicaController.tituloMusica}" />
@@ -25,14 +26,21 @@
 			<p:inputText value="#{Musica.compositorMusica}" />
 			<p:outputLabel id="banda" value="Banda:" />
 			<p:inputText value="#{Musica.banda}" />
-			<p:outputLabel id="letraMusica" value="Letra da Música:" />
-			<p:inputTextarea cols="25" value="#{Musica.letraMusica}" />
+			<p:outputLabel id="labelMusica" value="Letra da Música:" />
+			<p:editor widgetVar="editorWidget" id="letraMusica" width="600"  value="#{Musica.letraMusica}"/>
 			<p:outputLabel id="duracaoMusica" value="Duração da Música:" />
 			<p:calendar id="time" value="#{Musica.date11}" pattern="HH:mm:ss"
 				timeOnly="true" />
+				
 		</h:panelGrid>
-		<p:commandButton value="Submit" ajax="false" action="#{musicaController.addMusica}" icon="ui-icon-check" update="msgs"/>
-	
+		</p:panel>
+		<p:commandButton value="Submit" ajax="false"
+			action="#{musicaController.addMusica}" icon="ui-icon-check"
+			update="panel">
+			
+		</p:commandButton>
+		
+ 
 	</h:form>
 </h:body>
 </html>
