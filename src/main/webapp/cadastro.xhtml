@@ -18,10 +18,9 @@
 	<p:separator />
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
-
 		<h:panelGrid columns="2" cellpadding="5">
 			<p:outputLabel id="tituloMusica" value="Título da Música:" />
-			<p:inputText value="#{Musica.tituloMusica}" />
+			<p:inputText value="#{musicaController.tituloMusica}" />
 			<p:outputLabel id="compositorMusica" value="Compositor da Música:" />
 			<p:inputText value="#{Musica.compositorMusica}" />
 			<p:outputLabel id="banda" value="Banda:" />
@@ -32,17 +31,8 @@
 			<p:calendar id="time" value="#{Musica.date11}" pattern="HH:mm:ss"
 				timeOnly="true" />
 		</h:panelGrid>
-		<p:commandButton value="Submit" update="msgs"
-			action="#{musicaController.addMusica()}" icon="ui-icon-check"  />
-		<p:dialog modal="true" resizable="false" header="Values"
-			widgetVar="dlg" showEffect="fold">
-			<p:panelGrid id="display" columns="2" columnClasses="label,value">
-				<h:outputText value="Time:" />
-				<h:outputText value="#{Musica.date11}">
-					<f:convertDateTime pattern="HH:mm" />
-				</h:outputText>
-			</p:panelGrid>
-		</p:dialog>
+		<p:commandButton value="Submit" ajax="false" action="#{musicaController.addMusica}" icon="ui-icon-check" update="msgs"/>
+	
 	</h:form>
 </h:body>
 </html>
