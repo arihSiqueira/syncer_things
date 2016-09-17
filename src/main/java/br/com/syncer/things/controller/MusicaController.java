@@ -1,5 +1,6 @@
 package br.com.syncer.things.controller;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 @ManagedBean(name="musicaController", eager = true)
@@ -17,6 +19,7 @@ public class MusicaController implements Serializable{
 /**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 private String tituloMusica;
 public String getTituloMusica() {
@@ -46,11 +49,20 @@ public List<Musica> getMusicas() {
 public void setMusicas(List<Musica> musicas) {
 	this.musicas = musicas;
 }
-public void addMusica(){
+public String goToSecretPage() {
+    // ...
+    return "secretPage";
+}
+public void addMusica() throws IOException{
 	String tituloMusica = getTituloMusica();
 	int id = getIdMusica();
 	if (tituloMusica == null)
 		tituloMusica = "No";
+	if(tituloMusica.equals("StrangerThings")){
+		FacesContext.getCurrentInstance().getExternalContext().redirect("secretPage.xhtml");
+	}
+	else
+		FacesContext.getCurrentInstance().getExternalContext().redirect("lista.xhtml");
 	id = 0;
 	musicas.add(new Musica(id,tituloMusica));
 	musica = null;
