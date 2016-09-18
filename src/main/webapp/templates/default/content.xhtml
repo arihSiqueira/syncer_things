@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <ui:composition>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-3 col-md-2 sidebar">
+                    <ui:include src="leftMenu.xhtml" />
+                </div> -->
+                <div class="col-sm-12 main" style="background-color: rgba(89, 121, 121, 0.73);height:95vh;">                    
+                    <ui:insert name="content" />
+                    <CENTER style="margin-top:15%;">
+                    	<h1 style="font-family: sans serif;color: rgba(6, 6, 6, 0.58);"><i class="fa fa-music fa-3x" aria-hidden="true"></i>SYNCER THINGS</h1>
+                    <br/>
+                    	<p:button outcome="/lista"  value="Lista de Musicas" icon="ui-icon-star" style="background:#af6d6d;text-shadow:0 0px 0 rgba(255,255,255,0.7);box-shadow: inset 0 0px 0;webkit-box-shadow:inset 0 0px 0;"></p:button>
+                    	<p:button outcome="/cadastro"  value="Nova Musica" icon="ui-icon-star" style="background:#af6d6d;text-shadow:0 0px 0 rgba(255,255,255,0.7);box-shadow: inset 0 0px 0;webkit-box-shadow:inset 0 0px 0;"></p:button>
+                    	<p:button  outcome="/sugestao" value="Sugestão de Musicas" icon="ui-icon-star" style="background:#af6d6d;text-shadow:0 0px 0 rgba(255,255,255,0.7);box-shadow: inset 0 0px 0;webkit-box-shadow:inset 0 0px 0;"></p:button>
+                    </CENTER>               
+                </div>
+            </div>
+        </div> 
+    </ui:composition>
+</html>

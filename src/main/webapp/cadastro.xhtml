@@ -5,11 +5,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:body>
+<h:body style="background-color: rgba(89, 121, 121, 0.73);height:95vh;">
 	<h:head>
 		<title>Cadastro de Músicas</title>
 	</h:head>
-	<p:breadCrumb>
+	<p:breadCrumb style="background:rgba(193, 68, 68, 0.64); text-shadow:0 0px 0;">
 		<p:menuitem url="index.xhtml" />
 		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
 		<p:menuitem value="Lista de Músicas" url="lista.xhtml" />
@@ -18,8 +18,8 @@
 	<p:separator />
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
-		<p:panel id="panel" header="Form" style="margin-bottom:10px;">
-		<h:panelGrid columns="2" cellpadding="5">
+		<p:panel id="panel" header="Form" style="margin-bottom:10px;background-color: rgb(133, 157, 157)">
+		<h:panelGrid columns="2" cellpadding="5" >
 			<p:outputLabel id="tituloMusica" value="Título da Música:" />
 			<p:inputText value="#{musicaController.tituloMusica}" />
 			<p:outputLabel id="compositorMusica" value="Compositor da Música:" />

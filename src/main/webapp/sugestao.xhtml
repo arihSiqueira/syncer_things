@@ -9,15 +9,16 @@
 <h:head>
 	<title>Sugestão</title>
 </h:head>
-<p:breadCrumb>
+<p:breadCrumb style="background:rgba(193, 68, 68, 0.64); text-shadow:0 0px 0;">
 	<p:menuitem url="index.xhtml" />
 	<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
 	<p:menuitem value="Lista de Músicas" url="lista.xhtml" />
 	<p:menuitem value="Sugestões" url="sugestao.xhtml" />
 </p:breadCrumb>
 <p:separator />
-<h:body>
+<h:body style="background: rgba(89, 121, 121, 0.73);height:95vh;">
 <!-- required="true" -->
+<center>
 	<h:form id="form">
 		<h:panelGrid columns="2" cellpadding="5">
 			<p:outputLabel id="autor" value="Autor:"  />
@@ -35,5 +36,6 @@
 		</h:commandButton>
 	</h:form>
 	    <h:outputText id="message" value="#{sugestaoController.message}"/>
+</center>
 </h:body>
 </html>

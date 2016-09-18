@@ -6,11 +6,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:body>
+<h:body style="background-color: rgba(89, 121, 121, 0.73);">
 	<h:head>
 		<title>Biblioteca de Músicas</title>
 	</h:head>
-	<p:breadCrumb>
+	<p:breadCrumb style="background:rgba(193, 68, 68, 0.64); text-shadow:0 0px 0;">
 		<p:menuitem url="index.xhtml" />
 		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
 		<p:menuitem value="Lista de Músicas" url="itensLista.xhtml" />
@@ -18,7 +18,8 @@
 	</p:breadCrumb>
 	<p:separator />
 	
-	  <h:form>
+	  <h:form style="background-color: rgb(133, 157, 157);height:95vh;">
+	  <center>
 		<p:outputLabel for="advanced" value="Selecione as músicas cadastradas para ter maiores informações:" />
 		<p:selectOneListbox id="advanced" value="#{selectOneView.musica}" converter="musicaConverter" var="m" filter="true" filterMatchMode="contains">
             <f:selectItems value="#{selectOneView.musicas}" var="musica" itemLabel="#{musica.tituloMusica}" itemValue="#{musica}" />
@@ -31,6 +32,7 @@
                 <h:outputText value="#{m.tituloMusica}" />
             </p:column>
         </p:selectOneListbox>
+       </center>
 	</h:form> 
 </h:body>
 </html>
