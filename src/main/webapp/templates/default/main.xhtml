@@ -17,7 +17,7 @@
  
         <f:facet name="middle">
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-            
+            <h:outputStylesheet name="css/stylesheet.css" />
             <h:outputStylesheet name="css/dashboard.css" />
             
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
@@ -32,7 +32,28 @@
     </h:head>
               
     <h:body style="height:100%">
-        <ui:include src="header.xhtml" />
-        <ui:include src="content.xhtml" />    
+    <div id="page">
+		<div id="header-container">
+			<div id="header">
+				<ui:insert name="header">
+					<ui:include src="leftMenu.xhtml" />
+				</ui:insert>
+			</div>
+		</div>
+		<div id="content-container">
+			<div id="content">
+				<ui:insert name="content">
+					<p>Main content</p>
+				</ui:insert>
+			</div>
+		</div>
+		<div id="footer-container">
+			<div id="footer">
+				<ui:insert name="footer">
+					<p>Footer</p>
+				</ui:insert>
+			</div>
+		</div>
+	</div>  
     </h:body>
 </html>
