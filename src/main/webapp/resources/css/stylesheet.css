@@ -1,0 +1,56 @@
+
+.navbar-fixed-top{background:#990000;}
+
+/*#messages-container {height:50px; width: 100%; margin:0; display: inline-block;}
+
+#messages {background: #44EE00; width:100%; height: 100%; margin:0; display: inline-block;}
+	
+#content-container {height:100%; width:100%; margin:0} 
+
+#content {background:#d6d6d6; width:100%;  height:100%; margin:0}
+
+#sidebar {float:left; background: #FF1100; width:20%;  height:100%; margin:0}
+
+#footer-container {width:100%; margin:0; clear:both; display: inline-block;}
+
+#footer {background: black; width:100%; height:100%; margin:0 auto; display: inline-block;}
+*/
+.navbar-default .navbar-nav > li > a{
+	color:white;	
+}
+
+.flex-container{
+	display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+	min-width: 100%;
+	min-height: 100%;
+	background:#d6d6d6;
+}
+
+.back{
+	background:#d6d6d6;
+}
+
+.row{
+	display: inline-flex;
+	padding-left: 15%;
+}
+
+.card{
+	margin:10px;
+	width:300px;
+}
+
+input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=url]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #990000;
+    box-shadow: 0 1px 0 0 #990000;
+}
+
