@@ -6,19 +6,19 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:body style="background-color: rgba(89, 121, 121, 0.73);">
 	<h:head>
 		<title>Biblioteca de Músicas</title>
 	</h:head>
-	<p:breadCrumb style="background:rgba(193, 68, 68, 0.64); text-shadow:0 0px 0;">
-		<p:menuitem url="index.xhtml" />
-		<p:menuitem value="Cadastro de Músicas" url="cadastro.xhtml" />
-		<p:menuitem value="Lista de Músicas" url="itensLista.xhtml" />
-		<p:menuitem value="Sugestões" url="sugestao.xhtml" />
-	</p:breadCrumb>
-	<p:separator />
-	
-	  <h:form style="background-color: rgb(133, 157, 157);height:95vh;">
+	<h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+     <h:outputStylesheet name="css/stylesheet.css" />
+     <h:outputStylesheet name="css/dashboard.css" />
+	 <h:outputScript name="bootstrap/js/bootstrap.js" />
+	 <h:outputStylesheet name="css/font-awesome.css" />
+	<h:body >
+	<ui:insert name="header">
+		<ui:include src="templates/default/leftMenu.xhtml" />
+	</ui:insert>
+	 <h:form >
 	  <center>
 		<p:outputLabel for="advanced" value="Selecione as músicas cadastradas para ter maiores informações:" />
 		<p:selectOneListbox id="advanced" value="#{selectOneView.musica}" converter="musicaConverter" var="m" filter="true" filterMatchMode="contains">
