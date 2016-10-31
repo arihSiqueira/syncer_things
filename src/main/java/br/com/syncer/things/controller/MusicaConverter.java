@@ -7,6 +7,8 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import br.com.syncer.things.model.Musica;
+
 @FacesConverter("musicaConverter")
 public class MusicaConverter implements Converter{
 	 public Object getAsObject(FacesContext fc, UIComponent uic, String value) {

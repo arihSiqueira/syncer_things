@@ -1,4 +1,4 @@
-package br.com.syncer.things.controller;
+package br.com.syncer.things.model;
 
 import javax.faces.bean.ManagedBean;
 
@@ -18,7 +18,7 @@ public void setTexto(String texto) {
 	this.texto = texto;
 }
 public String enviada() {
-	return (nomeAutor == null && texto == null)? "Sugestão não enviada!": "Sugestão enviada com sucesso ";
+	return (nomeAutor == null && texto == null)? "Sugestï¿½o nï¿½o enviada!": "Sugestï¿½o enviada com sucesso ";
 }
 
 private String texto;

@@ -3,6 +3,8 @@ package br.com.syncer.things.controller;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
+import br.com.syncer.things.model.Sugestao;
+
 
 @ManagedBean(name="sugestaoController")
 public class SugestaoController {

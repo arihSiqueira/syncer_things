@@ -23,13 +23,13 @@
 			<p:outputLabel id="tituloMusica" value="Título da Música:" />
 			<p:inputText value="#{musicaController.tituloMusica}" />
 			<p:outputLabel id="compositorMusica" value="Compositor da Música:" />
-			<p:inputText value="#{Musica.compositorMusica}" />
+			<p:inputText value="#{musicaController.compositorMusica}" />
 			<p:outputLabel id="banda" value="Banda:" />
-			<p:inputText value="#{Musica.banda}" />
+			<p:inputText value="#{musicaController.banda}" />
 			<p:outputLabel id="labelMusica" value="Letra da Música:" />
-			<p:editor widgetVar="editorWidget" id="letraMusica" width="600"  value="#{Musica.letraMusica}"/>
+			<p:editor widgetVar="editorWidget" id="letraMusica" width="600"  value="#{musicaController.letraMusica}"/>
 			<p:outputLabel id="duracaoMusica" value="Duração da Música:" />
-			<p:calendar id="time" value="#{Musica.date11}" pattern="HH:mm:ss"
+			<p:calendar id="time" value="#{musicaController.date11}" pattern="HH:mm:ss"
 				timeOnly="true" />
 				
 		</h:panelGrid>

@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
+import br.com.syncer.things.model.Musica;
+
 @ManagedBean
 public class SelectOneView {
     private String option;   
