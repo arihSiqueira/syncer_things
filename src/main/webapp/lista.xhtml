@@ -6,33 +6,48 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	<h:head>
-		<title>Biblioteca de Músicas</title>
-	</h:head>
-	<h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-     <h:outputStylesheet name="css/stylesheet.css" />
-     <h:outputStylesheet name="css/dashboard.css" />
-	 <h:outputScript name="bootstrap/js/bootstrap.js" />
-	 <h:outputStylesheet name="css/font-awesome.css" />
-	<h:body >
+<h:head>
+	<title>Biblioteca de Músicas</title>
+</h:head>
+<h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+<h:outputStylesheet name="css/stylesheet.css" />
+<h:outputStylesheet name="css/dashboard.css" />
+<h:outputScript name="bootstrap/js/bootstrap.js" />
+<h:outputStylesheet name="css/font-awesome.css" />
+<h:body>
 	<ui:insert name="header">
 		<ui:include src="templates/default/leftMenu.xhtml" />
 	</ui:insert>
-	 <h:form >
-	  <center>
-		<p:outputLabel for="advanced" value="Selecione as músicas cadastradas para ter maiores informações:" />
-		<p:selectOneListbox id="advanced" value="#{selectOneView.musica}" converter="musicaConverter" var="m" filter="true" filterMatchMode="contains">
-            <f:selectItems value="#{selectOneView.musicas}" var="musica" itemLabel="#{musica.tituloMusica}" itemValue="#{musica}" />
- 
-            <p:column>
-                <!--  <h:outputText styleClass="ui-theme ui-theme-#{t.name}" /> -->
-            </p:column>
- 
-            <p:column>
-                <h:outputText value="#{m.tituloMusica}" />
-            </p:column>
-        </p:selectOneListbox>
-       </center>
-	</h:form> 
+	<h:form>
+		<center>
+			<p:outputLabel for="advanced"
+				value="Selecione as músicas cadastradas para ter maiores informações:" />
+			<p:selectOneListbox id="advanced" value="#{selectOneView.musica}"
+				converter="musicaConverter" var="m" filter="true"
+				filterMatchMode="contains">
+
+				<f:selectItems value="#{selectOneView.musicas}" var="musica"
+					itemLabel="#{musica.tituloMusica}" itemValue="#{musica}" />
+				<p:column>
+					<h:outputText value="#{m.tituloMusica}" />
+				</p:column>
+			</p:selectOneListbox>
+			<p:commandButton value="Alterar" ajax="false"
+				action="#{musicaController.addMusica}" icon="ui-icon-check"
+				update="panel">
+			</p:commandButton>
+			<p:commandButton value="Excluir" ajax="false"
+				action="#{musicaController.removerMusica}" icon="ui-icon-check"
+				update="panel">
+			</p:commandButton>
+		</center>
+
+		<!--  	<h:commandButton value="Alterar" ajax="false"
+				action="" icon="ui-icon-check">
+			</h:commandButton>
+			<h:commandButton value="Excluir" ajax="false"
+				action="" icon="ui-icon-check">
+			</h:commandButton>-->
+	</h:form>
 </h:body>
 </html>

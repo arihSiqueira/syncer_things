@@ -9,18 +9,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
-
 import org.primefaces.context.RequestContext;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import br.com.syncer.things.model.Musica;
 import br.com.syncer.things.service.MusicService;
-@ManagedBean(name="musicaController")
+@ManagedBean(name="musicaController", eager = true)
 @SessionScoped
 public class MusicaController implements Serializable{
+	private Long id;
 	private String letraMusica;
 	private String compositorMusica;
 	private String banda;
@@ -29,9 +24,17 @@ public class MusicaController implements Serializable{
 	private MusicService musicService;
 	private Musica musica;
 	private static final long serialVersionUID = 1L;
-	private List<Musica> musicas;
+	private List<Musica> musicas = new ArrayList<Musica>();
 	private Date date11;
-
+	public void removerMusica(){
+		Long idMusica = getId();
+		System.out.println("did it get here");
+		musicService.excluir(idMusica);
+		musicas = musicService.mostrarTodas();
+	}
+	public void alterarMusica(){
+		
+	}
 	public void addMusica() throws IOException{
 		Musica musicaSave = new Musica();
 		String tituloMusica = getTituloMusica();
@@ -44,36 +47,22 @@ public class MusicaController implements Serializable{
 		musicaSave.setBanda(banda);
 		Date date11 = getDate11();
 		musicaSave.setDate11(date11);
-	
+		System.out.println(musicService);
+		System.out.println(musicService.getMusicRepository().findByMusic_Id((long) 2));
 		if(musicaSave.getTituloMusica().equals("StrangerThings")){
 			FacesContext.getCurrentInstance().getExternalContext().redirect("secretPage.xhtml");
 		}
 		else
 		{
-			
 			FacesContext.getCurrentInstance().getExternalContext().redirect("lista.xhtml");
-
 		}
-		//System.out.println(musicService);
-		//System.out.println(musicaSave.getBanda());
 		musicService.transacaoSave(musicaSave);
-		
 		musicas.add(musicaSave);
 		musica = null;
-	
 	}
 	@PostConstruct
 	public void init(){
-		musicas = new ArrayList<Musica>();
-		musica = new Musica();
-		musica.setTituloMusica("Sayonara");
-		musica.setCompositorMusica("Alexander");
-		musica.setLetraMusica("kkk");
-		musica.setBanda("alison");
-		musicas.add(new Musica((long) 0,"The Phantom of the Opera"));
-		musicas.add(new Musica((long) 1,"Hello"));
-		musicas.add(musica);
-		musica = null;
+		musicas = musicService.mostrarTodas();
 	}
     public void reset() {
         RequestContext.getCurrentInstance().reset("form:panel");
@@ -125,5 +114,11 @@ public class MusicaController implements Serializable{
 	}
 	public void setDate11(Date date11) {
 		this.date11 = date11;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

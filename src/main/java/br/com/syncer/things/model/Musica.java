@@ -1,5 +1,6 @@
 package br.com.syncer.things.model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.faces.application.FacesMessage;
@@ -11,21 +12,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.primefaces.event.SelectEvent;
+
 @Entity
 @Table(name = "music")
-public class Musica {
+public class Musica implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
+@Column(name = "music_id")
 private Long id;
-@Column(name = "MUSIC_LYRIC")
+@Column(name = "music_lyric")
 private String letraMusica;
-@Column(name = "MUSIC_COMPOSITOR")
+@Column(name = "music_compositor")
 private String compositorMusica;
-@Column(name = "MUSIC_BAND")
+@Column(name = "music_band")
 private String banda;
-@Column(name = "MUSIC_DURATION")
+@Column(name = "music_duration")
 private Date date11;
-@Column(name = "MUSIC_TITLE")
+@Column(name = "music_title")
 private String tituloMusica;
 public Long getId() {
 	return id;
