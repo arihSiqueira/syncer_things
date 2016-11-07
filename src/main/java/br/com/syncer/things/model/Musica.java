@@ -100,5 +100,14 @@ public void setDate11(Date date11) {
 public String toString() {
     return tituloMusica;
 }
-
+public boolean equals(Object other) {
+    return (other instanceof Musica) && (id != null) 
+         ? id.equals(((Musica) other).id) 
+         : (other == this);
+}
+public int hashCode() {
+    return (id != null) 
+         ? (getClass().hashCode() + id.hashCode())
+         : super.hashCode();
+}
 }

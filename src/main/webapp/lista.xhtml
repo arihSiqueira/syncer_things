@@ -22,26 +22,30 @@
 		<center>
 			<p:outputLabel for="advanced"
 				value="Selecione as músicas cadastradas para ter maiores informações:" />
-			<p:selectOneListbox id="advanced" value="#{selectOneView.musica}"
-				converter="musicaConverter" var="m" filter="true"
+			<p:selectOneListbox id="advanced" value="#{musicaController.musica}"
+				converter="#{musicaConverter}" var="m" filter="true"
 				filterMatchMode="contains">
 
-				<f:selectItems value="#{selectOneView.musicas}" var="musica"
-					itemLabel="#{musica.tituloMusica}" itemValue="#{musica}" />
+				<f:selectItems value="#{musicaController.musicas}" var="musica"
+					itemLabel="#{musica.tituloMusica}" itemValue="#{musica}" >
+					
+					</f:selectItems>
+					<p:ajax listener="#{musicaController.mudouMusica}" execute="@form" render="advanced"></p:ajax>
 				<p:column>
 					<h:outputText value="#{m.tituloMusica}" />
 				</p:column>
 			</p:selectOneListbox>
-			<p:commandButton value="Alterar" ajax="false"
+			
+			<p:commandButton value="Alterar" 
 				action="#{musicaController.addMusica}" icon="ui-icon-check"
-				update="panel">
+				>
 			</p:commandButton>
-			<p:commandButton value="Excluir" ajax="false"
-				action="#{musicaController.removerMusica}" icon="ui-icon-check"
-				update="panel">
+			<p:commandButton value="Excluir"
+				action="#{musicaController.removerMusica}" update="advanced" icon="ui-icon-check">
+			
 			</p:commandButton>
 		</center>
-
+	<!--  <p:ajax  update="advanced"></p:ajax> -->
 		<!--  	<h:commandButton value="Alterar" ajax="false"
 				action="" icon="ui-icon-check">
 			</h:commandButton>

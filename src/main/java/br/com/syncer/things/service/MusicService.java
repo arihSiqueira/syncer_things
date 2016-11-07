@@ -11,4 +11,5 @@ public interface MusicService {
 	public void excluir(Long idMusica);
 	public void setMusicRepository(MusicRepository musicRepository);
 	public MusicRepository getMusicRepository();
+
 }

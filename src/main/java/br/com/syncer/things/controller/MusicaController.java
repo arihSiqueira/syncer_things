@@ -1,14 +1,21 @@
 package br.com.syncer.things.controller;
 import java.io.IOException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.ConverterException;
+import javax.faces.convert.FacesConverter;
+
 import org.primefaces.context.RequestContext;
 import br.com.syncer.things.model.Musica;
 import br.com.syncer.things.service.MusicService;
@@ -16,6 +23,7 @@ import br.com.syncer.things.service.MusicService;
 @SessionScoped
 public class MusicaController implements Serializable{
 	private Long id;
+	
 	private String letraMusica;
 	private String compositorMusica;
 	private String banda;
@@ -27,9 +35,9 @@ public class MusicaController implements Serializable{
 	private List<Musica> musicas = new ArrayList<Musica>();
 	private Date date11;
 	public void removerMusica(){
-		Long idMusica = getId();
-		System.out.println("did it get here");
-		musicService.excluir(idMusica);
+		
+		System.out.println("tchau"+id);
+		musicService.excluir(id);
 		musicas = musicService.mostrarTodas();
 	}
 	public void alterarMusica(){
@@ -59,6 +67,10 @@ public class MusicaController implements Serializable{
 		musicService.transacaoSave(musicaSave);
 		musicas.add(musicaSave);
 		musica = null;
+	}
+	public void mudouMusica(){
+		id = musica.getId();
+		System.out.println("oi"+id);
 	}
 	@PostConstruct
 	public void init(){
@@ -121,4 +133,5 @@ public class MusicaController implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 }

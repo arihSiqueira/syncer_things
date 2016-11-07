@@ -3,6 +3,7 @@ package br.com.syncer.things.controller;
 import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
@@ -18,41 +19,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.syncer.things.model.Musica;
 import br.com.syncer.things.service.MusicService;
 
-@FacesConverter("musicaConverter")
+@ManagedBean
 @RequestScoped
-public class MusicaConverter implements Converter, Serializable{
+public class MusicaConverter implements Converter{
 
-	private static final long serialVersionUID = 1L;
+	
 	@ManagedProperty(value="#{musicService}")
 	private MusicService musicService;
+
+
+    public MusicService getMusicService() {
+		return musicService;
+	}
+
+	public void setMusicService(MusicService musicService) {
+		this.musicService = musicService;
+	}
+
 	@Override
-	 public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-	        if(value != null && value.trim().length() > 0) {
-	        	Long id = Long.parseLong(value);
-	            try {
-	            	return musicService.getMusicRepository().findByMusic_Id(id);
-	            } catch(NumberFormatException e) {
-	                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid music."));
-	            }
-	        }
-	        else {
-	        	System.out.println("There you are");
-	            return null;
-	        }
-	    }
-	 @Override
-	    public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-	        if(object != null) {
-	            return String.valueOf(((Musica) object).getId());
-	        }
-	        else {
-	            return "null object";
-	        }
-	    }
-		public MusicService getMusicService() {
-			return musicService;
-		}
-		public void setMusicService(MusicService musicService) {
-			this.musicService = musicService;
-		}
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
+        // Convert here Operation object to String value for use in HTML.
+        if (!(value instanceof Musica) || ((Musica) value).getId() == null) {
+            return null;
+        }
+
+        return String.valueOf(((Musica) value).getId());
+    }
+
+    @Override
+    public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        // Convert here String submitted value to Operation object.
+        if (value == null || !value.matches("\\d+")) {
+            return null;
+        }
+
+        Musica musica = musicService.getMusicRepository().findByMusic_Id(Long.valueOf(value));
+        System.out.println(musica.getTituloMusica());
+        System.out.println(musica.getId());
+        if (musica == null) {
+            throw new ConverterException(new FacesMessage("Unknown operation ID: " + value));
+        }
+
+        return musica;
+    }
+    
 }
