@@ -4,7 +4,16 @@
 
 <web-app>
 	<display-name>MyFaces Project</display-name>
-
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 	<!-- Welcome page -->
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
@@ -17,6 +26,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/applicationContext*.xml</param-value>
+
 	</context-param>
 	<context-param>
 		<param-name>javax.faces.SERIALIZE_SERVER_STATE</param-name>

@@ -1,6 +1,7 @@
 package br.com.syncer.things.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,11 @@ public class MusicServiceImpl implements MusicService{
 	public void excluir(Long idMusica) {
 		musicRepository.delete(idMusica);
 		
+	}
+	@Override
+	public void transacaoUpdate(Long id, String tituloMusica, String compositorMusica, String letraMusica, String banda, Date date11) {
+		// TODO Auto-generated method stub
+		musicRepository.atualizarMusica(id, tituloMusica, compositorMusica, letraMusica, banda, date11);
 	}
 	
 }

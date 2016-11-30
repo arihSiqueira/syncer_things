@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Alterar Música</title>
+	</h:head>
+     <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+     <h:outputStylesheet name="css/stylesheet.css" />
+     <h:outputStylesheet name="css/dashboard.css" />
+	 <h:outputScript name="bootstrap/js/bootstrap.js" />
+	 <h:outputStylesheet name="css/font-awesome.css" />
+	<h:body style="height:100%">
+	<ui:insert name="header">
+		<ui:include src="templates/default/leftMenu.xhtml" />
+	</ui:insert>
+	<ui:insert name="content">
+		<div class="flex-container" style="text-align:left;">
+		<h:form id="form" class="back" style="width:100%"> 
+			<p:growl id="msgs" showDetail="true" />
+			<p:panel id="panel" header="Form" style="margin-bottom:10px;background:#d6d6d6;">
+			<h:panelGrid columns="2" cellpadding="5" class="back">
+			<p:outputLabel id="tituloMusica" value="Título da Música:" />
+			<p:inputText value="#{musicaController.tituloMusica}" />
+			<p:outputLabel id="compositorMusica" value="Compositor da Música:" />
+			<p:inputText value="#{musicaController.compositorMusica}" />
+			<p:outputLabel id="banda" value="Banda:" />
+			<p:inputText value="#{musicaController.banda}" />
+			<p:outputLabel id="labelMusica" value="Letra da Música:" />
+			<p:editor widgetVar="editorWidget" id="letraMusica" width="600"  value="#{musicaController.letraMusica}"/>
+			<p:outputLabel id="duracaoMusica" value="Duração da Música:" />
+			<p:calendar id="time" value="#{musicaController.date11}" pattern="HH:mm:ss"
+				timeOnly="true" />
+					
+			</h:panelGrid>
+			</p:panel>
+			<p:commandButton value="Submit" ajax="false"
+				action="#{musicaController.alterarMusica}" icon="ui-icon-check"
+				update="panel">
+			</p:commandButton>
+		</h:form>
+		</div>
+	</ui:insert>
+	</h:body>
+</html>

@@ -18,7 +18,7 @@ public void setTexto(String texto) {
 	this.texto = texto;
 }
 public String enviada() {
-	return (nomeAutor == null && texto == null)? "Sugest�o n�o enviada!": "Sugest�o enviada com sucesso ";
+	return (nomeAutor == null && texto == null)? "Não enviou!": "enviado com sucesso ";
 }
 
 private String texto;

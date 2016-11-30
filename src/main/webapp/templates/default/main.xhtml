@@ -4,9 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:tp="http://tutorialspoint.com/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
  
     <h:head>
+       
         <f:facet name="first">
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
@@ -25,6 +28,7 @@
             
             <h:outputScript name="bootstrap/js/bootstrap.js" />
             <h:outputScript name="js/mdb.min.js" />
+            <h:outputScript name="js/syncerthings.js" />
         </f:facet>
         
         <f:facet name="last">
@@ -38,62 +42,24 @@
 		<ui:include src="leftMenu.xhtml" />
 	</ui:insert>
     <div class="flex-container">
-    	<div class="row" style="margin: auto auto; width:100%;">
-    	<!--Card-->
-				<div class="card" >
-				
+    	<c:forEach items="#{musicaController.musicas}" var="item">
+    		<div class="card col-xs-4 col-lg-4" >
 				    <!--Card image-->
-				    <img class="img-fluid" src="http://mdbootstrap.com/images/regular/nature/img%20(28).jpg" alt="Card image cap"/>
+				    <img class="img-fluid" src="resources/images/syncerthingslogo.png" alt="Card image cap"/>
 				    <!--/.Card image-->
 				
 				    <!--Card content-->
 				    <div class="card-block">
 				        <!--Title-->
-				        <h4 class="card-title">Card title</h4>
+				        <h4 class="card-title">${item.tituloMusica}</h4>
 				        <!--Text-->
-				        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				        <a href="#" class="btn btn-primary">Button</a>
+				        <p class="card-text">Banda: ${item.banda}</p>
+				        <a href="#" onclick="openMyChords(${item.id})" class="btn btn-danger">Ver</a>
 				    </div>
 				    <!--/.Card content-->
-				
-				</div>
-				<div class="card" >
-				
-				    <!--Card image-->
-				    <img class="img-fluid" src="http://mdbootstrap.com/images/regular/nature/img%20(28).jpg" alt="Card image cap" />
-				    <!--/.Card image-->
-				
-				    <!--Card content-->
-				    <div class="card-block">
-				        <!--Title-->
-				        <h4 class="card-title">Card title</h4>
-				        <!--Text-->
-				        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				        <a href="#" class="btn btn-primary">Button</a>
-				    </div>
-				    <!--/.Card content-->
-				
-				</div>
-				<div class="card" >
-				
-				    <!--Card image-->
-				    <img class="img-fluid" src="http://mdbootstrap.com/images/regular/nature/img%20(28).jpg" alt="Card image cap"/>
-				    <!--/.Card image-->
-				
-				    <!--Card content-->
-				    <div class="card-block">
-				        <!--Title-->
-				        <h4 class="card-title">Card title</h4>
-				        <!--Text-->
-				        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				        <a href="#" class="btn btn-primary">Button</a>
-				    </div>
-				    <!--/.Card content-->
-				
-				</div>
-				<!--/.Card-->
-	     </div>
-	     <div class="row" style="padding-left:555px;">
+			</div>		
+    	</c:forEach>	
+	     <!-- <div class="row col-xs-12 col-lg-12" style="padding-left:555px;">
 	     	<div class="md-form">
 	     		<table style="width: 100%"><tr>
 			    <td><input type="text" id="form1" class="form-control"/>
@@ -101,7 +67,32 @@
 			    <td><button class="btn btn-danger" type="submit">GO</button></td>
 				</tr></table>
 			</div>
-	     </div>
+	     </div> -->
+	</div>
+	     
+	<!-- /div -->
+	<div id="myCifra" class="modal fade" role="dialog">
+	  <div class="modal-dialog" style="width: 900px;">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content" >
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">x</button>
+	        <h4 class="modal-title">Cifra</h4>
+	      </div>
+	      <div class="modal-body" >
+	        <div id="cifra">
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+	      </div>
+	    </div>
+	
+	  </div>
 	</div>
     </h:body>
+    <script type="text/javascript">
+		var songs = #{musicaController.musicsJson};
+    </script>
 </html>

@@ -25,6 +25,7 @@
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }

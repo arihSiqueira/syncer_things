@@ -1,20 +1,16 @@
 package br.com.syncer.things.controller;
 
-import java.io.Serializable;
+
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
-import javax.faces.convert.FacesConverter;
-import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.syncer.things.model.Musica;
 import br.com.syncer.things.service.MusicService;
